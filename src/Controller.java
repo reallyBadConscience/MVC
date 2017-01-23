@@ -3,10 +3,9 @@ public class Controller {
 	private static View view;
 	private static Model model;
 
-	public static void main(String[] args) {
-		Controller controller = new Controller();
-		model = new Model(controller);
-		view = new View(controller);
+	public Controller() {
+		this.view = new View(this);
+		this.model = new Model(this);
 	}
 
 	public void onClick_Num(int i) {
@@ -24,7 +23,7 @@ public class Controller {
 	public void onClick_Add() {
 		model.setState(Model.State.Add);
 	}
-	
+
 	public void onUpdate() {
 		view.onUpdate(model.getValue());
 	}
